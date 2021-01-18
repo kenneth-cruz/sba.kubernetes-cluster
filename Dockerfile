@@ -1,13 +1,9 @@
 # This Dockerfile will help build the image
 # Kenneth Cruz
 
-FROM python:3
-
-WORKDIR /usr/src/app
-
-COPY requirements.txt ./
+FROM python:3.7-alpine
+WORKDIR /app
+ADD . /app
 RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-CMD [ "python", "./your-daemon-or-script.py" ]
+EXPOSE 5000
+CMD [ "python", "web.py" ]
