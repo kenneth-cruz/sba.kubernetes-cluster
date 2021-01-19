@@ -21,7 +21,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: app-sba-kubernetes-cluster
+  name: service-sba-kubernetes-cluster
 spec:
   type: NodePort
   selector:
