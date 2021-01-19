@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
  name: app-sba-kubernetes-cluster
- labels:
-   app: flaskapp
 spec:
  selector:
   matchLabels:
@@ -16,9 +14,9 @@ spec:
     spec:
       containers:
       - name: app-sba-kubernetes-cluster
-       image: kenneth-cruz/app-sba-kubernetes-cluster
-       ports:
-      - containerPort: 8090
+        image: kenneth-cruz/app-sba-kubernetes-cluster:0.1
+        ports:
+        - containerPort: 8090
 ---
 apiVersion: v1
 kind: Service
