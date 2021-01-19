@@ -1,0 +1,57 @@
+### deployment information ###
+Name:                   app-sba-kubernetes-cluster
+Namespace:              default
+CreationTimestamp:      Tue, 19 Jan 2021 07:56:40 -0500
+Labels:                 <none>
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=flaskapp
+Replicas:               3 desired | 3 updated | 3 total | 0 available | 3 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=flaskapp
+  Containers:
+   app-sba-kubernetes-cluster:
+    Image:        kenneth-cruz/app-sba-kubernetes-cluster:0.1
+    Port:         8090/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      False   MinimumReplicasUnavailable
+  Progressing    False   ProgressDeadlineExceeded
+OldReplicaSets:  <none>
+NewReplicaSet:   app-sba-kubernetes-cluster-8595679944 (3/3 replicas created)  
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  28m   deployment-controller  Scaled up replica set app-sba-kubernetes-cluster-8595679944 to 3
+### service information ###
+Name:                     service-sba-kubernetes-cluster
+Namespace:                default
+Labels:                   <none>
+Annotations:              <none>
+Selector:                 app=app-sba-kubernetes-cluster
+Type:                     NodePort
+IP Families:              <none>
+IP:                       10.106.228.179
+IPs:                      <none>
+Port:                     <unset>  8090/TCP
+TargetPort:               8090/TCP
+NodePort:                 <unset>  30008/TCP
+Endpoints:                <none>
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+### node information ###
+NAME       STATUS   ROLES    AGE   VERSION
+minikube   Ready    master   26h   v1.19.4
+### pod information ###
+NAME                                          READY   STATUS             RESTARTS   AGE
+app-sba-kubernetes-cluster-8595679944-2df7z   0/1     ImagePullBackOff   0          32m
+app-sba-kubernetes-cluster-8595679944-j92ct   0/1     ImagePullBackOff   0          32m
+app-sba-kubernetes-cluster-8595679944-xhbvl   0/1     ImagePullBackOff   0          32m
